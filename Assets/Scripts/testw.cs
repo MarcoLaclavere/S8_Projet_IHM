@@ -10,6 +10,8 @@ public class testw : MonoBehaviour
 
     public GameObject[] ensemble;
 
+    public GameObject[] images;
+
     //add audiosource
     public AudioSource audioSource;
 
@@ -45,7 +47,16 @@ public class testw : MonoBehaviour
         ensemble[0].SetActive(true);
 
         RenderSettings.ambientIntensity = 1.45f;
-        //play audio
+
+        for (int i = 0; i < images.Length; i++)
+        {
+            images[i].SetActive(false);
+        }
+        
+
+
+
+
         
     }
 
@@ -57,6 +68,16 @@ public class testw : MonoBehaviour
         }
 
         ensemble[1].SetActive(true);
+
+        if(images.Length > 2){
+        for (int i = 0; i < images.Length; i++)
+        {
+            images[i].SetActive(false);
+        }
+
+        images[0].SetActive(true);
+        }
+
         RenderSettings.ambientIntensity = 2.45f;
         audioSource.clip = sunny;
         audioSource.Play();
@@ -70,6 +91,17 @@ public class testw : MonoBehaviour
         }
 
         ensemble[2].SetActive(true);
+
+
+        if(images.Length > 2){
+            for (int i = 0; i < images.Length; i++)
+            {
+                images[i].SetActive(false);
+            }
+
+            images[1].SetActive(true);
+    }
+
         RenderSettings.ambientIntensity = 1.45f;
         audioSource.clip = cloudy;
         audioSource.Play();
@@ -83,6 +115,16 @@ public class testw : MonoBehaviour
         }
 
         ensemble[3].SetActive(true);
+
+        if(images.Length > 2){
+            for (int i = 0; i < images.Length; i++)
+            {
+                images[i].SetActive(false);
+            }
+
+            images[2].SetActive(true);
+        }
+
         RenderSettings.ambientIntensity = 0.75f;
         audioSource.clip = rainy;
         audioSource.Play();
@@ -90,12 +132,27 @@ public class testw : MonoBehaviour
 
     public void setSnowy()
     {
+
+
         for (int i = 0; i < ensemble.Length; i++)
         {
             ensemble[i].SetActive(false);
         }
 
         ensemble[4].SetActive(true);
+
+
+        if(images.Length > 2){
+        for (int i = 0; i < images.Length; i++)
+        {
+            images[i].SetActive(false);
+        }
+
+        images[3].SetActive(true);
+        }
+
+
+
         RenderSettings.ambientIntensity = 1.75f;
         audioSource.clip = snowy;
         audioSource.Play();
