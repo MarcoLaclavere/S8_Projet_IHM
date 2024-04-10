@@ -110,6 +110,7 @@ public class GlobalCustomization : MonoBehaviour
     public static void UpdateMoney(int currency)
     {
         GlobalCustomization.Money += currency;
+        if(UIManager.getInstance() != null)
         UIManager.getInstance().UpdateMoney(GlobalCustomization.Money);
     }
 }

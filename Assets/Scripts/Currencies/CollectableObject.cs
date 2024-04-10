@@ -16,6 +16,13 @@ public class CollectableObject : MonoBehaviour
         {
             GlobalCustomization.UpdateMoney(gainzz);
 
+            if(respawn == 0)
+            {
+                gameObject.SetActive(false);
+                
+            }
+            else { Destroy(gameObject); }
+
             if (respawn != 0)
             {
                 gameObject.SetActive(false);
