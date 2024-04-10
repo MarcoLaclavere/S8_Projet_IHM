@@ -17,12 +17,14 @@ public class Validator : MonoBehaviour
 
     private IEnumerator WaitForAnimationToEnd()
     {
+        GlobalCustomization.UpdateMoney(-10);
         animator.SetTrigger("ValidateTrigger");
 
         // Attendez que l'animation soit terminée
         yield return new WaitForSeconds(3.5f);
 
         // Une fois l'animation terminée, chargez la nouvelle scène
+
         SceneManager.LoadScene(nextSceneName);
     }
 }

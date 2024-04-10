@@ -3,37 +3,54 @@ using UnityEngine;
 public class CarControllerTD1 : MonoBehaviour
 {
     public Rigidbody rg;
-    public float forwardMoveSpeed;
-    public float backwardMoveSpeed;
-    public float steerSpeed;
+    public float acceleration = 50f; // Vitesse d'accélération
+    public float maxSpeed = 150f; // Vitesse maximale
+    public float turnSpeed = 200f; // Vitesse de rotation
 
     private bool isFrozen = false;
 
     private float inputX;
     private float inputY;
-    void Update() // Get keyboard inputs
+
+    void Update()
     {
         if (isFrozen) return;
+
+        // Récupère les inputs du joueur
         inputY = Input.GetAxis("Vertical");
         inputX = Input.GetAxis("Horizontal");
     }
-    
-    void FixedUpdate() // Apply physics here
+
+    void FixedUpdate()
     {
-        // Accelerate
-        float speed = inputY > 0 ? forwardMoveSpeed : backwardMoveSpeed;
-        if (inputY == 0) speed = 0;
-        rg.AddForce(this.transform.forward * speed, ForceMode.Acceleration);
-        // Steer
-        float rotation = inputX * steerSpeed * Time.fixedDeltaTime;
-        if (inputY == 0) rotation = 0;
-        transform.Rotate(0, rotation, 0, Space.World);
+        if (isFrozen) return;
+
+        // Applique l'accélération en direction de l'avant de la voiture
+        Vector3 accelerationDirection = transform.forward * inputY;
+        if (rg.velocity.magnitude < maxSpeed)
+        {
+            rg.AddForce(accelerationDirection * acceleration, ForceMode.Acceleration);
+        }
+
+        // Gère la rotation
+        if (inputX != 0)
+        {
+            float rotation = inputX * turnSpeed * Time.fixedDeltaTime;
+            transform.Rotate(0, rotation, 0);
+        }
+
+        // Ajuste la vélocité de la voiture pour qu'elle suive la nouvelle direction après le virage
+        if (inputY != 0) // Si le joueur accélère ou recule
+        {
+            rg.velocity = Vector3.Lerp(rg.velocity, transform.forward * rg.velocity.magnitude, Time.fixedDeltaTime * turnSpeed * Mathf.Abs(inputX));
+        }
     }
 
     public void Freeze()
     {
         isFrozen = true;
-        rg.velocity = Vector3.zero; // Stop all movement
+        rg.velocity = Vector3.zero; // Arrête tout mouvement
+        rg.angularVelocity = Vector3.zero; // Arrête toute rotation
     }
 
     public void UnfreezePlayer()

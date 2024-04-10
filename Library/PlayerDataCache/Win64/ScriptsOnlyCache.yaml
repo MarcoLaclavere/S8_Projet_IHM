@@ -28,6 +28,7 @@ ScriptsOnlyBuild:
     - Walk
     - changeColorHair
     - clicSoundScript
+    - endScript
     - menuscript
     - passiveSpin
     - passiveSpin2
@@ -127,6 +128,9 @@ ScriptsOnlyBuild:
   - assembly: Assembly-CSharp
     fullTypeName: scenechanger
     methodName: changeScene
+  - assembly: Assembly-CSharp
+    fullTypeName: endScript
+    methodName: PlayVideo
   - assembly: Assembly-CSharp
     fullTypeName: ChangeEyeColor
     methodName: setColor
@@ -433,6 +437,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
+      Script: {instanceID: 0}
     Assets/Scenes/planetsMenu.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -504,6 +512,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 6402}
     - Class: 114
       Script: {instanceID: 7472}
+    - Class: 114
+      Script: {instanceID: 88788}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -521,6 +531,10 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
       Script: {instanceID: 0}
     Assets/Scenes/race.unity:
     - Class: 1
@@ -619,6 +633,10 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 224
       Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
+      Script: {instanceID: 0}
     Assets/Scenes/waitscene.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -677,6 +695,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 4554}
     - Class: 114
+      Script: {instanceID: 4894}
+    - Class: 114
       Script: {instanceID: 4968}
     - Class: 114
       Script: {instanceID: 5084}
@@ -709,6 +729,10 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -863,7 +887,7 @@ ScriptsOnlyBuild:
     className: Menu
   - hash:
       serializedVersion: 2
-      Hash: 3a564cf55bfe6db6398e434eb4c218eb
+      Hash: 85c13d76e9748154cb622a778d49dfae
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: CarControllerTD1
@@ -1995,6 +2019,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: b43ceda5775e2c0899f3841b30f966a6
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: endScript
   platform: 19
   scenePathNames:
   - Assets/Scenes/SceneStart.unity

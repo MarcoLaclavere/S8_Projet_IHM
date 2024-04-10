@@ -366,6 +366,8 @@
 "Assets/Scripts/CurencyDisplay.cs"
 "Assets/Scripts/Currencies/CollectableObject.cs"
 "Assets/Scripts/Currencies/Currency.cs"
+"Assets/Scripts/endScript.cs"
+"Assets/Scripts/endScript2.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/LaunchGame.cs"
 "Assets/Scripts/MenuManager.cs"
