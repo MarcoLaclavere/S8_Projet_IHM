@@ -7,9 +7,17 @@ public class ChangeColorFace : MonoBehaviour
     public GameObject[] faces;
     public Color[] colors = new Color[] {Color.yellow, Color.black, Color.white};
     private int currentColor = 0;
+    public int cost = 5;
 
     public void setColor()
     {
+        if (!enabled)
+        {
+            if (GlobalCustomization.getCurrency(Currency.Money) < cost) return;
+            enabled = true;
+            GlobalCustomization.AddCurrency(new CurrencyAmount(Currency.Money,cost));
+            
+        }
         Debug.Log("SetColor() called");
         currentColor = (currentColor + 1) % colors.Length;
         // Changer la couleur de chaque tête
@@ -30,6 +38,7 @@ public class ChangeColorFace : MonoBehaviour
         void Start()
     {
         Debug.Log("start() called");
+        enabled = false;
 
         // Changer la couleur de chaque tête
         foreach (var face in faces)

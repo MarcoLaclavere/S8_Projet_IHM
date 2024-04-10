@@ -109,5 +109,14 @@ public class GlobalCustomization : MonoBehaviour
             Currencies.Add(Ca.currency, Ca.amount);
         }
             return Currencies[Ca.currency];
-        }
+    }
+    public static int getCurrency(Currency currency)
+    {
+        return Currencies[currency];
+    }
+    public int getMoney()
+    {
+        if (Currencies.ContainsKey(Currency.Money)) { return 0; }
+        return Currencies[Currency.Money];
+    }
 }
