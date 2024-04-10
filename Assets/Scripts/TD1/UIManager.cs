@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
     private static UIManager UiManager;
 
     public static UIManager getInstance() { 
-        return UiManager; 
+        return UiManager;
     }
     public void Start()
     {

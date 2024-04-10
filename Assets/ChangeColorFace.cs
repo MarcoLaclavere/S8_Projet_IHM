@@ -13,9 +13,9 @@ public class ChangeColorFace : MonoBehaviour
     {
         if (!enabled)
         {
-            if (GlobalCustomization.getCurrency(Currency.Money) < cost) return;
+            if (GlobalCustomization.getMoney() < cost) return;
             enabled = true;
-            GlobalCustomization.AddCurrency(new CurrencyAmount(Currency.Money,cost));
+            GlobalCustomization.UpdateMoney(-cost);
             
         }
         Debug.Log("SetColor() called");

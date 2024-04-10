@@ -7,17 +7,14 @@ public class CollectableObject : MonoBehaviour
 {
 
     public Collider collider;
-    public List<CurrencyAmount> currencies;
+    public int gainzz = 1;
     public float respawn = 0;
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.tag.Contains("Player"))
         {
-            foreach(CurrencyAmount currency in currencies)
-            {
-                GlobalCustomization.AddCurrency(currency);
-            }
+            GlobalCustomization.UpdateMoney(gainzz);
 
             if (respawn != 0)
             {

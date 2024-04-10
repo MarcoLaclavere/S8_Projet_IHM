@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using UnityEditor.Search;
 
 public class GlobalCustomization : MonoBehaviour
 {
@@ -29,10 +28,13 @@ public class GlobalCustomization : MonoBehaviour
         public static int HairColorIndex { get; set; } = 0; // Initialisé à 0 par défaut
 
         public static int SkinColor { get; set; } = 0; // Initialisé à 0 par défaut
-        private static Dictionary<Currency, int> Currencies = new Dictionary<Currency, int>();
+
+        private static int Money { get; set; } = 0; // Initialisé à 0 par défaut
         // Start is called before the first frame update
         void Start()
         {
+
+
 
             for (int i = 0; i < bodies.Length; i++)
             {
@@ -100,31 +102,14 @@ public class GlobalCustomization : MonoBehaviour
 
         }
 
-        public static int AddCurrency(CurrencyAmount Ca)
-        {
-        if(Currencies.ContainsKey(Ca.currency))
-        {
-            Currencies[Ca.currency] += Ca.amount;
-        }
-        else
-        {
-            Currencies.Add(Ca.currency, Ca.amount);
-        }
-        Debug.Log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
-        Debug.Log($"Money = {GlobalCustomization.getMoney().ToString()}");
-        if (Ca.currency == Currency.Money)
-        {
-            UIManager.getInstance().moneyDisplay.text = Currencies[Currency.Money].ToString();
-        }
-            return Currencies[Ca.currency];
-    }
-    public static int getCurrency(Currency currency)
-    {
-        return Currencies[currency];
-    }
     public static int getMoney()
     {
-        if (Currencies.ContainsKey(Currency.Money)) { return 0; }
-        return Currencies[Currency.Money];
+        return GlobalCustomization.Money;
+    }
+
+    public static void UpdateMoney(int currency)
+    {
+        GlobalCustomization.Money += currency;
+        UIManager.getInstance().UpdateMoney(GlobalCustomization.Money);
     }
 }
