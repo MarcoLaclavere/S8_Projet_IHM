@@ -11,13 +11,13 @@ public class ChangeColorFace : MonoBehaviour
 
     public void setColor()
     {
-        if (!enabled)
-        {
-            if (GlobalCustomization.getMoney() < cost) return;
-            enabled = true;
-            GlobalCustomization.UpdateMoney(-cost);
+        // if (!enabled)
+        // {
+        //     if (GlobalCustomization.getMoney() < cost) return;
+        //     enabled = true;
+        //     GlobalCustomization.UpdateMoney(-cost);
             
-        }
+        // }
         Debug.Log("SetColor() called");
         currentColor = (currentColor + 1) % colors.Length;
         // Changer la couleur de chaque tête
