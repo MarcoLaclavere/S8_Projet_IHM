@@ -16,7 +16,8 @@ public class CollectableObject : MonoBehaviour
         {
             foreach(CurrencyAmount currency in currencies)
             {
-                GlobalCustomization.AddCurrency(currency);
+                Debug.Log($"{currency.currency} = {GlobalCustomization.AddCurrency(currency)}");
+                ;
             }
             if (respawn != 0)
             {

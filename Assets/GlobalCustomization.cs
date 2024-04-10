@@ -108,7 +108,6 @@ public class GlobalCustomization : MonoBehaviour
         {
             Currencies.Add(Ca.currency, Ca.amount);
         }
-        Console.WriteLine(Currencies[Ca.currency]);
             return Currencies[Ca.currency];
         }
 }
