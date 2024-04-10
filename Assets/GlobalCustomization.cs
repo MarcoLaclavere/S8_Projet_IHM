@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using UnityEditor.Search;
 
 public class GlobalCustomization : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class GlobalCustomization : MonoBehaviour
     public GameObject face;
     public Color[] colorsHair;
     public Color[] colorsEyes;
-    public Color[] colorsSkin; 
+    public Color[] colorsSkin;
 
 
      public static int BodyIndex { get; set; } = 0; // Initialisé à 0 par défaut
@@ -108,13 +110,19 @@ public class GlobalCustomization : MonoBehaviour
         {
             Currencies.Add(Ca.currency, Ca.amount);
         }
+        Debug.Log("CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC");
+        Debug.Log($"Money = {GlobalCustomization.getMoney().ToString()}");
+        if (Ca.currency == Currency.Money)
+        {
+            UIManager.getInstance().moneyDisplay.text = Currencies[Currency.Money].ToString();
+        }
             return Currencies[Ca.currency];
     }
     public static int getCurrency(Currency currency)
     {
         return Currencies[currency];
     }
-    public int getMoney()
+    public static int getMoney()
     {
         if (Currencies.ContainsKey(Currency.Money)) { return 0; }
         return Currencies[Currency.Money];

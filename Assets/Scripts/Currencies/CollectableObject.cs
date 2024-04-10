@@ -16,8 +16,9 @@ public class CollectableObject : MonoBehaviour
         {
             foreach(CurrencyAmount currency in currencies)
             {
-                Debug.Log($"{currency.currency} = {GlobalCustomization.AddCurrency(currency)}");
+                GlobalCustomization.AddCurrency(currency);
             }
+
             if (respawn != 0)
             {
                 gameObject.SetActive(false);
