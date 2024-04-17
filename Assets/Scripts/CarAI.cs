@@ -61,7 +61,7 @@ public class CarAI : MonoBehaviour
         rg.AddForce(transform.forward * forwardMoveSpeed, ForceMode.Acceleration);
 
         // Check if we reached the waypoint
-        if (directionToWaypoint.magnitude < 6) // 1 is the waypoint radius
+        if (directionToWaypoint.magnitude < 10) // 1 is the waypoint radius
         {
             currentWaypointIndex++;
             Debug.Log("Reached waypoint " + currentWaypointIndex);
