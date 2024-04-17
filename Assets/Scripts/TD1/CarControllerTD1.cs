@@ -44,6 +44,17 @@ public class CarControllerTD1 : MonoBehaviour
         {
             rg.velocity = Vector3.Lerp(rg.velocity, transform.forward * rg.velocity.magnitude, Time.fixedDeltaTime * turnSpeed * Mathf.Abs(inputX));
         }
+
+        // Vérifie s'il y a un obstacle devant la voiture
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 2f))
+            {
+                // Si un obstacle est détecté, arrête la rotation
+                if (hit.collider.CompareTag("Obstacle"))
+                {
+                    inputX = 0f; // Arrête la rotation
+                }
+            }        
     }
 
     public void Freeze()

@@ -21,7 +21,7 @@ public class ChangeEyeColor : MonoBehaviour
         foreach (var eye in Eyes)
         {
             // Passer à la couleur suivante
-            currentColor = (currentColor + 1) % colors.Length;
+            currentColor = (currentColor + 0) % colors.Length;
             GlobalCustomization.EyesIndex = currentColor;
 
             var renderer = eye.GetComponent<Renderer>();

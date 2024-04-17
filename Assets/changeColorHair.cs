@@ -43,7 +43,7 @@ public class changeColorHair : MonoBehaviour
         foreach (var head in heads)
         {
             // Passer à la couleur suivante
-            currentColor = (currentColor + 1) % colors.Length;
+            currentColor = (currentColor + 0) % colors.Length;
             GlobalCustomization.HairColorIndex = currentColor;
 
             var renderer = head.GetComponent<Renderer>();

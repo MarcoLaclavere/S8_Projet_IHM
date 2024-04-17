@@ -58,7 +58,7 @@ public class CarAI : MonoBehaviour
         directionToWaypoint.y = 0; // Ensure the direction is only on the x-z plane
 
         // Move forward
-        rg.AddForce(transform.forward * forwardMoveSpeed, ForceMode.Acceleration);
+        rg.AddForce(transform.forward * 0.5f * forwardMoveSpeed, ForceMode.Acceleration);
 
         // Check if we reached the waypoint
         if (directionToWaypoint.magnitude < 10) // 1 is the waypoint radius

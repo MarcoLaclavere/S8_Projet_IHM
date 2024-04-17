@@ -37,14 +37,14 @@ public class ChangeColorFace : MonoBehaviour
 
         void Start()
     {
-        Debug.Log("start() called");
+        //Debug.Log("start() called");
         enabled = false;
 
         // Changer la couleur de chaque tête
         foreach (var face in faces)
         {
             // Passer à la couleur suivante
-            currentColor = (currentColor + 1) % colors.Length;
+            currentColor = (currentColor + 0) % colors.Length;
             GlobalCustomization.SkinColor = currentColor;
 
             var renderer = face.GetComponent<Renderer>();
